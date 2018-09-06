@@ -13,6 +13,6 @@ pub fn panic(_info: &PanicInfo) -> ! {
 
 // Defining a new entry place
 #[no_mangle]
-pub extern "C" fn main() -> ! {
+pub extern "C" fn _start() -> ! {
     loop {}
 }
