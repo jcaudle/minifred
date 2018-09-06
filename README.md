@@ -4,10 +4,10 @@ This is a toy operating system built following the guides provided on [the secon
 
 ## Prerequisites
 
-This software can be built with the `cargo-xbuild` crate and needs the rust source code installed.
+This software can be built with the `cargo-xbuild` crate, rust source code, and `bootimage` 0.5.x tool installed.
 
 ## Build instructions
 
 This software depends on the nightly build of Rust and Cargo. It can be built with the following command:
 
-    cargo xbuild --target x86_64-minifred.json
+    bootimage build
