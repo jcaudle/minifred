@@ -11,3 +11,7 @@ This software can be built with the `cargo-xbuild` crate, rust source code, and 
 This software depends on the nightly build of Rust and Cargo. It can be built with the following command:
 
     bootimage build
+
+## Running in QEMU
+
+Assuming that QEMU is installed, the OS can be run with `bootimage run`.
