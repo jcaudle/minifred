@@ -2,6 +2,21 @@ use core::fmt;
 use spin::Mutex;
 use volatile::Volatile;
 
+macro_rules! print {
+    ($($arg:tt)*) => ($crate::vga_buffer::print(format_args!($($arg)*)));
+}
+
+macro_rules! println {
+    () => (print!("\n"));
+    ($fmt:expr) => (print!(concat!($fmt, "\n")));
+    ($fmt:expr, $($arg:tt)*) => (print!(concat!($fmt, "\n"), $($arg)*));
+}
+
+pub fn print(args: fmt::Arguments) {
+    use core::fmt::Write;
+    WRITER.lock().write_fmt(args).unwrap();
+}
+
 lazy_static! {
     pub static ref WRITER: Mutex<Writer> = Mutex::new(Writer {
         column_position: 0,
