@@ -15,7 +15,8 @@ mod vga_buffer;
 // This function is called on panic.
 #[panic_handler]
 #[no_mangle]
-pub fn panic(_info: &PanicInfo) -> ! {
+pub fn panic(info: &PanicInfo) -> ! {
+    println!("{}", info);
     loop {}
 }
 
@@ -23,6 +24,8 @@ pub fn panic(_info: &PanicInfo) -> ! {
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     println!("Hello World{}", "!");
+
+    panic!("Some panic message");
 
     loop {}
 }
