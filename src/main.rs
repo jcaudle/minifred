@@ -1,4 +1,3 @@
-#![feature(panic_handler)]
 #![no_std]
 #![no_main]
 
@@ -15,8 +14,6 @@ mod vga_buffer;
 pub fn panic(_info: &PanicInfo) -> ! {
     loop {}
 }
-
-static HELLO: &[u8] = b"Hello World!";
 
 // Defining a new entry place
 #[no_mangle]
